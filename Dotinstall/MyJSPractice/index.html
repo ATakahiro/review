@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang=ja>
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript Practice</title>
+		<link rel="stylesheet" href="css/styles.css">
+		<!-- <script type="text/javascript" src="js/main.js"></script> -->
+	</head>
+	<body>
+		<script>
+			'use strict'
+
+			const num = 5;
+			const winner = Math.floor(Math.random() * num); //0-4
+
+			for( let i = 0; i<  num; i++){
+				const div =document.createElement('div');
+				div.classList.add('box');
+
+				if( i === winner ){
+					div.dataset.result = 'win';
+				}else{
+					div.dataset.result = 'lose';
+				}
+
+				div.addEventListener('click' , function(){
+					if(div.dataset.result === 'win'){
+						div.textContent = 'Win!';
+						div.classList.add('win');
+					}else{
+						div.textContent = 'Lose!';
+						div.classList.add('lose');
+					}
+					div.classList.toggle('circle');
+				});
+
+				document.body.appendChild(div);
+			}
+		</script>
+	</body>
+</html>
